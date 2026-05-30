@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="eCommerce User Models" id="qGAkQWiHWC_8EfIRV1Ro">
+    <mxGraphModel dx="1414" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vsKv_rW3-fVTDJfdD4Nr-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="ApplicationUser" vertex="1">
+          <mxGeometry height="200" width="200" x="150" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="vsKv_rW3-fVTDJfdD4Nr-5" parent="vsKv_rW3-fVTDJfdD4Nr-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;UserID: Guid&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Email: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Password: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;PersonName: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Gender: string&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="150" width="200" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="vsKv_rW3-fVTDJfdD4Nr-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="AuthenticationResponse" vertex="1">
+          <mxGeometry height="200" width="270" x="435" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="vsKv_rW3-fVTDJfdD4Nr-6" parent="vsKv_rW3-fVTDJfdD4Nr-2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;UserID: UniqueIdentifier&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Email: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;PersonName: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Gender: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Token: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Success: bool&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="150" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vsKv_rW3-fVTDJfdD4Nr-3" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="RegisterRequestDTO" vertex="1">
+          <mxGeometry height="200" width="200" x="150" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="vsKv_rW3-fVTDJfdD4Nr-7" parent="vsKv_rW3-fVTDJfdD4Nr-3" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Email: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Password: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;PersonName: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Gender: string&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="150" width="200" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vsKv_rW3-fVTDJfdD4Nr-4" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="LoginDTO" vertex="1">
+          <mxGeometry height="150" width="240" x="470" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="vsKv_rW3-fVTDJfdD4Nr-8" parent="vsKv_rW3-fVTDJfdD4Nr-4" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;ul&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Email: string&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Password: string&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="150" width="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
