@@ -2,6 +2,7 @@ using eCommerce.Infrastructure;
 using eCommerce.Core;
 using eCommerce.API.Middlewares;
 using System.Text.Json.Serialization;
+using eCommerce.Core.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,10 @@ builder.Services.AddControllers()
             //You need to add this to convert enum values to string in the JSON request. Otherwise, the API will expect integer values for enum properties in the request body, and result in error.
             options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         });
+
+//This will scan the assembly containing ApplicationUserMappingProfile for AutoMapper profiles and register them automatically.
+//You can add more mapping profiles in the same assembly, and they will be registered as well.
+builder.Services.AddAutoMapper(cfg => { }, typeof(ApplicationUserMappingProfile).Assembly); 
 
 //Build the web application
 var app = builder.Build();

@@ -1,4 +1,5 @@
-﻿using eCommerce.Core.DTO;
+﻿using AutoMapper;
+using eCommerce.Core.DTO;
 using eCommerce.Core.Entities;
 using eCommerce.Core.RepositoryContracts;
 using eCommerce.Core.ServiceContracts;
@@ -8,18 +9,20 @@ namespace eCommerce.Core.Services
     internal class UsersService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UsersService(IUserRepository userRepository)
+        private readonly IMapper _mapper;
+        public UsersService(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
+            _mapper = mapper;
         }
         public async Task<AuthenticationResponse?> Login(LoginRequest loginRequest)
         {
-            ApplicationUser applicationUser = await _userRepository.GetUserByEmailAndPassword(loginRequest.Email, loginRequest.Password);
+            ApplicationUser? applicationUser = await _userRepository.GetUserByEmailAndPassword(loginRequest.Email, loginRequest.Password);
             if (applicationUser == null) {
                 return null;
             }
 
-            return new AuthenticationResponse(applicationUser.UserID, applicationUser.Email, applicationUser.PersonName, applicationUser.Gender, "token", Success: true);
+            return _mapper.Map<AuthenticationResponse>(applicationUser) with { Success = true, Token = "token" };
         }
 
         public async Task<AuthenticationResponse?> Registration(RegisterRequest registerRequest)
@@ -39,7 +42,9 @@ namespace eCommerce.Core.Services
                 return null;
             }
 
-            return new AuthenticationResponse(registerUser.UserID, registerUser.Email, registerUser.PersonName, registerUser.Gender, "token", Success: true);
+            //return new AuthenticationResponse(registerUser.UserID, registerUser.Email, registerUser.PersonName, registerUser.Gender, "token", Success: true);
+            // _mapper.Map<destination>(source)
+            return _mapper.Map<AuthenticationResponse>(registerUser) with { Success = true, Token = "token"};  // with expression to set Success and Token properties (which were ignored in mapping profile)
         }
     }
 }
