@@ -16,7 +16,7 @@ namespace eCommerce.Infrastructure
             //TO DO: Add services to the IoC container
             //Infrastructure services such as data access, caching, other low-level components etc. will be registered here.
 
-            services.AddSingleton<IUserRepository, UsersRepository>();
+            services.AddTransient<IUserRepository, UsersRepository>();
             return services;
         }
     }
