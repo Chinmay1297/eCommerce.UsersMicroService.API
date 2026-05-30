@@ -14,5 +14,14 @@ namespace eCommerce.Core.DTO
         string? Gender,
         string? Token,
         bool Success
-    );
+    )
+    {
+        // By default records have parameterized primary constructor, but we can also define a secondary parameterless constructor if needed (e.g., for Automapper to work, deserialization purposes)
+        // Constructor chaining is required here because records with primary constructors do not have an implicit parameterless constructor,
+        // so we need to explicitly call the primary constructor with default values.
+        public AuthenticationResponse() : this(default, default, default, default, default, default)  
+        {
+            
+        }
+    };
 }

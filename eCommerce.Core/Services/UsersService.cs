@@ -28,13 +28,7 @@ namespace eCommerce.Core.Services
         public async Task<AuthenticationResponse?> Registration(RegisterRequest registerRequest)
         {
             //Create a new ApplicationUser object from RegisterRequest
-            ApplicationUser user = new ApplicationUser
-            {
-                Email = registerRequest.Email,
-                Password = registerRequest.Password,
-                PersonName = registerRequest.PersonName,
-                Gender = registerRequest.Gender.ToString()
-            };
+            ApplicationUser user = _mapper.Map<ApplicationUser>(registerRequest);
 
             ApplicationUser? registerUser = await _userRepository.AddUser(user);
 
