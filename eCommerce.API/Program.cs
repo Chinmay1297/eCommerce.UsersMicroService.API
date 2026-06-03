@@ -20,12 +20,21 @@ builder.Services.AddControllers()
 
 //This will scan the assembly containing ApplicationUserMappingProfile for AutoMapper profiles and register them automatically.
 //You can add more mapping profiles in the same assembly, and they will be registered as well.
-builder.Services.AddAutoMapper(cfg => { }, typeof(ApplicationUserMappingProfile).Assembly); 
+builder.Services.AddAutoMapper(cfg => { }, typeof(ApplicationUserMappingProfile).Assembly);
+
+//Add Swagger/OpenAPI services
+builder.Services.AddSwaggerGen();
 
 //Build the web application
 var app = builder.Build();
 
 app.UseExceptionHandlingMiddleware();
+
+if(app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 //Routing
 app.UseRouting();
