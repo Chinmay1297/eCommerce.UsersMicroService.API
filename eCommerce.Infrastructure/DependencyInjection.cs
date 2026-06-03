@@ -1,4 +1,5 @@
 ﻿using eCommerce.Core.RepositoryContracts;
+using eCommerce.Infrastructure.DbContext;
 using eCommerce.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,6 +18,8 @@ namespace eCommerce.Infrastructure
             //Infrastructure services such as data access, caching, other low-level components etc. will be registered here.
 
             services.AddTransient<IUserRepository, UsersRepository>();
+            services.AddTransient<DapperDbContext>();
+
             return services;
         }
     }
