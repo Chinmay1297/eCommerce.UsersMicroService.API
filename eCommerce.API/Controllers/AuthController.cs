@@ -1,5 +1,6 @@
 ﻿using eCommerce.Core.DTO;
 using eCommerce.Core.ServiceContracts;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,8 +18,13 @@ namespace eCommerce.API.Controllers
 
         [Route("register")]
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterRequest registerRequest)
+        public async Task<IActionResult> Register(RegisterRequest registerRequest, [FromServices] IValidator<RegisterRequest> validator)
         {
+            var validationResult = await validator.ValidateAsync(registerRequest);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
             //Check for invalid register Request
             if (registerRequest == null)
             {
@@ -37,11 +43,12 @@ namespace eCommerce.API.Controllers
         }
 
         [HttpPost("login")] //Combination of [HttpPost] and [Route("login")]
-        public async Task<IActionResult> Login(LoginRequest loginRequest)
+        public async Task<IActionResult> Login(LoginRequest loginRequest, [FromServices] IValidator<LoginRequest> validator)
         {
-            if(loginRequest == null)
+            var validationResult = await validator.ValidateAsync(loginRequest);
+            if (!validationResult.IsValid)
             {
-                return BadRequest("Invalid login data");
+                return BadRequest(validationResult.Errors);
             }
 
             AuthenticationResponse? authenticationResponse = await _userService.Login(loginRequest);

@@ -1,4 +1,5 @@
 ﻿using eCommerce.Core.Services;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace eCommerce.Core
@@ -16,6 +17,7 @@ namespace eCommerce.Core
             //Core services such as domain services, business logic components, interfaces etc. will be registered here.
 
             services.AddTransient<ServiceContracts.IUserService, UsersService>();
+            //services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
             return services;
         }
     }
